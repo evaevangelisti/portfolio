@@ -17,13 +17,6 @@
 			"options": {
 				"parser": "astro"
 			}
-		},
-		{
-			"files": ["*.yml", "*.yaml"],
-			"options": {
-				"useTabs": false,
-				"tabWidth": 2
-			}
 		}
 	]
 }
