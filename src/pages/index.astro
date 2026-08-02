@@ -7,63 +7,63 @@ import Layout from "../layouts/Layout.astro";
 import { site } from "../site.config";
 
 const education = (await getCollection("education")).sort(
-    (a, b) => b.data.startYear - a.data.startYear,
+	(a, b) => b.data.startYear - a.data.startYear,
 );
 ---
 
 <Layout title={site.name} description={site.description}>
-    <header>
-        <h1>{site.name}</h1>
-        <p class="role">{site.role}</p>
-        <p class="bio">
-            Interested in natural language processing, and drawn to linguistics
-            and philosophy. I try to keep both perspectives in dialogue.
-        </p>
-    </header>
+	<header>
+		<h1>{site.name}</h1>
+		<p class="role">{site.role}</p>
+		<p class="bio">
+			Interested in natural language processing, and drawn to linguistics
+			and philosophy. I try to keep both perspectives in dialogue.
+		</p>
+	</header>
 
-    <Section label="Education">
-        {education.map((entry) => <EducationEntry entry={entry} />)}
-    </Section>
+	<Section label="Education">
+		{education.map((entry) => <EducationEntry entry={entry} />)}
+	</Section>
 
-    <Section label="Contact">
-        <p>
-            Get in touch at <a href={`mailto:${site.email}`}>{site.email}</a>.
-        </p>
-        <p class="socials">
-            You can also find me on{" "}
-            <a href={site.socials.linkedin} target="_blank">LinkedIn</a> and{
-                " "
-            }
-            <a href={site.socials.github} target="_blank">GitHub</a>.
-        </p>
-    </Section>
+	<Section label="Contact">
+		<p>
+			Get in touch at <a href={`mailto:${site.email}`}>{site.email}</a>.
+		</p>
+		<p class="socials">
+			You can also find me on{" "}
+			<a href={site.socials.linkedin} target="_blank">LinkedIn</a> and{
+				" "
+			}
+			<a href={site.socials.github} target="_blank">GitHub</a>.
+		</p>
+	</Section>
 </Layout>
 
 <style>
-    h1 {
-        font-size: var(--text-largest);
-        font-weight: 400;
-    }
+	h1 {
+		font-size: var(--text-largest);
+		font-weight: 400;
+	}
 
-    .role {
-        margin-block-start: 0.5rem;
+	.role {
+		margin-block-start: 0.5rem;
 
-        color: var(--color-secondary);
-    }
+		color: var(--color-secondary);
+	}
 
-    .bio {
-        margin-block-start: 1rem;
+	.bio {
+		margin-block-start: 1rem;
 
-        line-height: var(--leading-relaxed);
-    }
+		line-height: var(--leading-relaxed);
+	}
 
-    .socials {
-        margin-block-start: 0.5rem;
+	.socials {
+		margin-block-start: 0.5rem;
 
-        color: var(--color-secondary);
-    }
+		color: var(--color-secondary);
+	}
 
-    .socials a {
-        color: var(--color-primary);
-    }
+	.socials a {
+		color: var(--color-primary);
+	}
 </style>

@@ -1,21 +1,29 @@
 {
-    "tabWidth": 4,
-    "plugins": ["prettier-plugin-astro", "@ianvs/prettier-plugin-sort-imports"],
-    "importOrder": [
-        "<BUILTIN_MODULES>",
-        "",
-        "<THIRD_PARTY_MODULES>",
-        "",
-        "^astro:",
-        "",
-        "^[.]"
-    ],
-    "overrides": [
-        {
-            "files": "*.astro",
-            "options": {
-                "parser": "astro"
-            }
-        }
-    ]
+	"useTabs": true,
+	"tabWidth": 4,
+	"plugins": ["prettier-plugin-astro", "@ianvs/prettier-plugin-sort-imports"],
+	"importOrder": [
+		"<BUILTIN_MODULES>",
+		"",
+		"<THIRD_PARTY_MODULES>",
+		"",
+		"^astro:",
+		"",
+		"^[.]"
+	],
+	"overrides": [
+		{
+			"files": "*.astro",
+			"options": {
+				"parser": "astro"
+			}
+		},
+		{
+			"files": ["*.yml", "*.yaml"],
+			"options": {
+				"useTabs": false,
+				"tabWidth": 2
+			}
+		}
+	]
 }

@@ -5,8 +5,8 @@ import "@fontsource-variable/instrument-sans";
 import "../styles/global.css";
 
 interface Props {
-    title: string;
-    description: string;
+	title: string;
+	description: string;
 }
 
 const { title, description } = Astro.props;
@@ -15,42 +15,42 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
+	<head>
+		<meta charset="utf-8" />
 
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="color-scheme" content="light dark" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="color-scheme" content="light dark" />
 
-        <title>{title}</title>
+		<title>{title}</title>
 
-        <meta name="description" content={description} />
-        <link rel="canonical" href={canonical} />
+		<meta name="description" content={description} />
+		<link rel="canonical" href={canonical} />
 
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={description} />
-        <meta property="og:url" content={canonical} />
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content={canonical} />
 
-        <meta name="twitter:card" content="summary" />
+		<meta name="twitter:card" content="summary" />
 
-        <link rel="icon" href="/favicon.ico" />
-    </head>
-    <body>
-        <main>
-            <slot />
-        </main>
-    </body>
+		<link rel="icon" href="/favicon.ico" />
+	</head>
+	<body>
+		<main>
+			<slot />
+		</main>
+	</body>
 </html>
 
 <style>
-    main {
-        display: flex;
+	main {
+		display: flex;
 
-        flex-direction: column;
-        gap: 4rem;
+		flex-direction: column;
+		gap: 4rem;
 
-        margin-inline: auto;
-        width: min(30rem, 100% - 4rem);
-        padding-block: 8rem;
-    }
+		margin-inline: auto;
+		width: min(30rem, 100% - 4rem);
+		padding-block: 8rem;
+	}
 </style>
