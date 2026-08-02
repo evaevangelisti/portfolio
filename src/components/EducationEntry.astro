@@ -1,0 +1,84 @@
+---
+import { render } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+    entry: CollectionEntry<"education">;
+}
+
+const { entry } = Astro.props;
+
+const { title, institution, startYear, endYear, grade, honors, thesis } =
+    entry.data;
+const { Content } = await render(entry);
+---
+
+<article>
+    <h3>{title}</h3>
+    <p class="metadata">{institution} · {startYear} — {endYear}</p>
+    <div class="description">
+        <Content />
+    </div>
+    {
+        grade && (
+            <p class="detail">
+                <span class="label">Graduated</span> {grade}{" "}
+                {honors && <em>{honors}</em>}
+            </p>
+        )
+    }
+    {
+        thesis && (
+            <p class="detail">
+                <span class="label">Thesis</span>{" "}
+                {thesis.url ? (
+                    <a href={thesis.url} lang={thesis.language} target="_blank">
+                        {thesis.title}
+                    </a>
+                ) : (
+                    <span lang={thesis.language}>{thesis.title}</span>
+                )}
+            </p>
+        )
+    }
+</article>
+
+<style>
+    article + article {
+        margin-block-start: 2rem;
+    }
+
+    h3 {
+        font-size: var(--text-large);
+        font-weight: 400;
+    }
+
+    .metadata {
+        margin-block-start: 0.5rem;
+
+        font-size: var(--text-small);
+        color: var(--color-secondary);
+    }
+
+    .description {
+        margin-block-start: 1rem;
+
+        line-height: var(--leading-relaxed);
+    }
+
+    .description :global(p + p) {
+        margin-block-start: 1rem;
+    }
+
+    .detail {
+        margin-block-start: 0.5rem;
+    }
+
+    .description + .detail {
+        margin-block-start: 1rem;
+    }
+
+    .label {
+        color: var(--color-secondary);
+    }
+</style>
